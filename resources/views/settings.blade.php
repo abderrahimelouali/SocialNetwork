@@ -1,7 +1,3 @@
-@extends('layouts.master')
-@section('title')
-Settings
-@endsection
-@section('content')
-    <h1>Welcome to setting page</h1>
-@endsection
+<x-master title="Settings Page">
+    <h1>settings page</h1>
+</x-master>

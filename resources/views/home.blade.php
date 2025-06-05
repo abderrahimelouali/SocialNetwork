@@ -7,6 +7,3 @@
         <x-alert color="danger">danger alert</x-alert>
         <x-alert color="success">success alert</x-alert>
     </x-master>
-
-
-    

@@ -6,9 +6,9 @@ use  App\Http\Controllers\homeController;
 use  App\Http\Controllers\profileController;
 use  App\Http\Controllers\informationsController;
 
-Route::get('/', [homeController::class, 'index']);
-Route::get('/profile', [profileController::class, 'index']);
-Route::get('/settings', [informationsController::class, 'index']);
+Route::get('/', [homeController::class, 'index'])->name('homepage');
+Route::get('/profiles', [profileController::class, 'index'])->name('profiles.index');
+Route::get('/settings', [informationsController::class, 'index'])->name('settings.index');
 
 // Route::get('/salam/{nom}/{prenom}', function (Request $request) {
 //     // dd($request->nom,$request->prenom);
