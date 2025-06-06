@@ -2,7 +2,9 @@
     <h3>
         Create New Profile:
     </h3>
-    <div class="mb-3">
+    <form action="{{ route('profiles.store') }}" method="POST">
+        @csrf
+         <div class="mb-3">
         <label class="form-label">Name:</label>
         <input type="text" name="name" class="form-control" required>
     </div>
@@ -21,5 +23,6 @@
     <div class="d-grid my-2">
         <button type="submit" class="btn btn-primary btn-block">Create</button>
     </div>
+    </form>
 
 </x-master>

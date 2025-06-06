@@ -12,6 +12,7 @@ Route::get('/profiles/{id}', [profileController::class, 'show'])
 ->where('id', '\d+')// Ensure id is a number using Regular Expression
 ->name('profiles.show');
 Route::get('/profiles/create', [profileController::class, 'create'])->name('profiles.create');
+Route::post('/profiles/store', [profileController::class, 'store'])->name('profiles.store');
 
 Route::get('/settings', [informationsController::class, 'index'])->name('settings.index');
 

@@ -20,7 +20,29 @@ class profileController extends Controller
         $profile = Profile::findOrFail($id);; // this will throw a 404 error if the profile is not found
         return view('profile.show', compact('profile'));
     }
-    public function create(){
+    public function create()
+    {
         return view('profile.create');
+    }
+    public function store(Request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $password = $request->password;
+        $bio = $request->bio;
+        $request->validate([
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|unique:profiles,email',
+            'password' => 'required|min:6|max:20',
+            'bio' => 'nullable|max:255',
+        ]);
+        Profile::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => bcrypt($password), // Encrypt the password
+            'bio' => $bio,
+            //or use $request->post() to get all fields اختصار
+        ]);
+        return redirect()->route('profiles.index');
     }
 }
