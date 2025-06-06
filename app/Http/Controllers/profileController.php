@@ -13,11 +13,8 @@ class profileController extends Controller
         $profiles = Profile::paginate(9);
         return view('profile.index', compact('profiles'));
     }
-    public function show(Request $request)
+    public function show(Profile $profile)
     {
-        $id = $request->id;
-        // $profile = Profile::find($id);;
-        $profile = Profile::findOrFail($id);; // this will throw a 404 error if the profile is not found
         return view('profile.show', compact('profile'));
     }
     public function create()
