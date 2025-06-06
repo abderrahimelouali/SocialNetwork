@@ -20,4 +20,7 @@ class profileController extends Controller
         $profile = Profile::findOrFail($id);; // this will throw a 404 error if the profile is not found
         return view('profile.show', compact('profile'));
     }
+    public function create(){
+        return view('profile.create');
+    }
 }

@@ -11,6 +11,8 @@ Route::get('/profiles', [profileController::class, 'index'])->name('profiles.ind
 Route::get('/profiles/{id}', [profileController::class, 'show'])
 ->where('id', '\d+')// Ensure id is a number using Regular Expression
 ->name('profiles.show');
+Route::get('/profiles/create', [profileController::class, 'create'])->name('profiles.create');
+
 Route::get('/settings', [informationsController::class, 'index'])->name('settings.index');
 
 // Route::get('/salam/{nom}/{prenom}', function (Request $request) {
