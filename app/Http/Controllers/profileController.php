@@ -43,6 +43,8 @@ class profileController extends Controller
             'bio' => $bio,
             //or use $request->post() to get all fields اختصار
         ]);
-        return redirect()->route('profiles.index');
+        return redirect()->route('profiles.index')
+        ->with('success', 'Profile created successfully!');
+        dd('store method called');
     }
 }

@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label"> Bio: (optional)</label>
-        <textarea name="bio" class="form-control" required></textarea>
+        <textarea name="bio" class="form-control"></textarea>
     </div>
     <div class="d-grid my-2">
         <button type="submit" class="btn btn-primary btn-block">Create</button>

@@ -8,9 +8,12 @@
     <li class="nav-item">
       <a class="nav-link text-white p-0" href="{{ route('profiles.index') }}">Profiles</a>
     </li>
-   
+
     <li class="nav-item">
       <a class="nav-link text-white p-0" href="{{ route('settings.index') }}">Settings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white p-0" href="{{ route('profiles.create') }}">Add Profile</a>
     </li>
   </ul>
 </nav>

@@ -10,8 +10,10 @@
 
 <body>
     @include('partials.nav')
-
     <main>
+        <div class="row my-3">
+            @include('partials.flashbag')
+        </div>
         <div class="container">
             {{ $slot }}
         </div>
