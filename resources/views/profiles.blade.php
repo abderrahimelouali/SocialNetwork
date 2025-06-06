@@ -12,7 +12,11 @@
                  <td>{{ $profile->id }}</td>
                  <td>{{ $profile->name }}</td>
                  <td>{{ $profile->email }}</td>
-                 <td>{{ Str::limit($profile->bio, 50) }}</td>
+                 <td>{{ Str::limit($profile->bio, 50) }}
+                        <div>
+                            <a href="{{route('profiles.show',['id'=>$profile->id])}}">Show details</a>
+                        </div>
+                 </td>
              </tr>
          @endforeach
         </table>

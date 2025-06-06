@@ -8,6 +8,9 @@ use  App\Http\Controllers\informationsController;
 
 Route::get('/', [homeController::class, 'index'])->name('homepage');
 Route::get('/profiles', [profileController::class, 'index'])->name('profiles.index');
+Route::get('/profiles/{id}', [profileController::class, 'show'])
+->where('id', '\d+')// Ensure id is a number using Regular Expression
+->name('profiles.show');
 Route::get('/settings', [informationsController::class, 'index'])->name('settings.index');
 
 // Route::get('/salam/{nom}/{prenom}', function (Request $request) {
