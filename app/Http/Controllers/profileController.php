@@ -44,7 +44,13 @@ class profileController extends Controller
             //or use $request->post() to get all fields اختصار
         ]);
         return redirect()->route('profiles.index')
-        ->with('success', 'Profile created successfully!');
+            ->with('success', 'Profile created successfully!');
         dd('store method called');
+        //Redirect
+        //Redirect()->route(...)
+        //redirect()->action(...)
+        //redirect()->back(...)//to redirect back to the previous page
+        //back()// to redirect back
+        //back()->withInput() // to redirect back with old input
     }
 }
