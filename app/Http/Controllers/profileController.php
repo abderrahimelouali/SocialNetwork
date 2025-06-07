@@ -28,6 +28,7 @@ class profileController extends Controller
         $password = $request->password;
         $bio = $request->bio;
         $request->validate([
+            //validation rules
             'name' => 'required|min:3|max:50',
             'email' => 'required|email|unique:profiles,email',
             'password' => 'required|min:6|max:20',
