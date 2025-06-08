@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class profileController extends Controller
 {
@@ -31,24 +32,17 @@ class profileController extends Controller
             //validation rules
             'name' => 'required|min:3|max:50',
             'email' => 'required|email|unique:profiles,email',
-            'password' => 'required|min:6|max:20',
+            'password' => 'required|min:6|max:20|confirmed',
             'bio' => 'nullable|max:255',
         ]);
         Profile::create([
             'name' => $name,
             'email' => $email,
-            'password' => bcrypt($password), // Encrypt the password
+            // 'password' => bcrypt($password),// ❌ Not recommended, use Hash::make instead
+            'password' =>Hash::make($password),// ✅ Best practice
             'bio' => $bio,
-            //or use $request->post() to get all fields اختصار
         ]);
         return redirect()->route('profiles.index')
             ->with('success', 'Profile created successfully!');
-        dd('store method called');
-        //Redirect
-        //Redirect()->route(...)
-        //redirect()->action(...)
-        //redirect()->back(...)//to redirect back to the previous page
-        //back()// to redirect back
-        //back()->withInput() // to redirect back with old input
     }
 }

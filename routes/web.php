@@ -10,7 +10,6 @@ Route::get('/', [homeController::class, 'index'])->name('homepage');
 Route::get('/profiles', [profileController::class, 'index'])->name('profiles.index');
 Route::get('/profiles/create', [profileController::class, 'create'])->name('profiles.create');
 Route::get('/profiles/{profile}', [profileController::class, 'show'])
-    ->where('profile', 'd+') // fix create route it think that create is an id so after tcheck db it returns 404
     ->name('profiles.show');
 Route::post('/profiles/store', [profileController::class, 'store'])->name('profiles.store');
 

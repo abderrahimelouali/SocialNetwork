@@ -36,6 +36,13 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label class="form-label">Confirm Password:</label>
+            <input type="password" name="password_confirmation" class="form-control" required>
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
             <label class="form-label"> Bio: (optional)</label>
             <textarea name="bio" class="form-control"></textarea>
             @error('bio')

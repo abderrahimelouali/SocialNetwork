@@ -12,7 +12,7 @@
             @else
                 <p class="card-text">Lorem ipsum dolor sit amet.</p>
             @endisset
-            <a href="{{ route('profiles.show', ['id' => $profile->id]) }}" class="stretched-link btn btn-primary">
+            <a href="{{ route('profiles.show', ['profile' => $profile->id]) }}" class="stretched-link btn btn-primary">
                 Show details
             </a>
         </div>
