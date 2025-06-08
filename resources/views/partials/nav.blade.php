@@ -15,6 +15,9 @@
     <li class="nav-item">
       <a class="nav-link text-white p-0" href="{{ route('profiles.create') }}">Add Profile</a>
     </li>
+     <li class="nav-item">
+      <a class="nav-link text-white p-0" href="{{ route('login.show') }}">login</a>
+    </li>
   </ul>
 </nav>
 
