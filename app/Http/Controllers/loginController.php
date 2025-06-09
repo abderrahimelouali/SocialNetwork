@@ -25,13 +25,18 @@ class loginController extends Controller
             'email' => $email,
             'password' => $password,
         ];
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return to_route('homepage')->with('success', 'Login successful!');
-        }else{
-return back()->withErrors([
+        } else {
+            return back()->withErrors([
                 'login' => 'Email or password is incorrect.',
             ])->onlyInput('email');
         }
+    }
+    public function logout(){
+    session()->flush();
+    Auth::logout();
+    return to_route('login.show')->with('danger', 'Logout successful!');
     }
 }
