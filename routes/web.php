@@ -22,6 +22,9 @@ Route::get('/profiles/{profile}', [profileController::class, 'show'])
     ->name('profiles.show');
 Route::post('/profiles/store', [profileController::class, 'store'])->name('profiles.store');
 
+//delete profile route:
+Route::delete('/profiles/{profile}', [profileController::class, 'destroy'])->name('profiles.destroy');
+
 Route::get('/settings', [informationsController::class, 'index'])->name('settings.index');
 
 // Route::get('/salam/{nom}/{prenom}', function (Request $request) {

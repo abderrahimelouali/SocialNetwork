@@ -38,4 +38,10 @@ class profileController extends Controller
         return redirect()->route('profiles.index')
             ->with('success', 'Profile created successfully!');
     }
+    public function destroy(Profile $profile)
+    {
+        $profile->delete();
+        return redirect()->route('profiles.index')
+            ->with('danger', 'Profile deleted successfully!');
+    }
 }

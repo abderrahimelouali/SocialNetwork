@@ -12,9 +12,17 @@
             @else
                 <p class="card-text">Lorem ipsum dolor sit amet.</p>
             @endisset
-            <a href="{{ route('profiles.show', ['profile' => $profile->id]) }}" class="stretched-link btn btn-primary">
+            <a href="{{ route('profiles.show', $profile->id) }}" class="stretched-link btn btn-primary">
                 Show details
             </a>
+        </div>
+
+        <div class="card-foot border-top px-3 py-3" style="z-index: 9">
+            <form action="{{ route('profiles.destroy', $profile->id) }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger float-end">Delete</button>
+            </form>
         </div>
     </div>
 </div>
