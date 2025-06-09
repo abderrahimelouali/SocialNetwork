@@ -44,4 +44,18 @@ class profileController extends Controller
         return redirect()->route('profiles.index')
             ->with('danger', 'Profile deleted successfully!');
     }
+    public function modify(Profile $profile)
+    {
+        return view("profile.modify", compact('profile'));
+    }
+    public function update(profileRequest $request, Profile $profile)
+    {
+        $formFields = $request->validated();
+        //hash
+        $formFields['password'] = Hash::make($formFields['password']);
+        $profile->fill($formFields)->save();
+        // dd($profile);
+        return redirect()->route('profiles.show', compact('profile'))
+            ->with('success', 'Profile updated successfully!');
+    }
 }

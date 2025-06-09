@@ -24,8 +24,8 @@ class profileRequest extends FormRequest
         return [
              //validation rules
             'name' => 'required|min:3|max:50',
-            'email' => 'required|email|unique:profiles,email',
-            'password' => 'required|min:6|max:20|confirmed',
+            'email' => 'required|email',
+            'password' => 'required|min:6|max:55|confirmed',
             'bio' => 'nullable|max:255',
         ];
     }
