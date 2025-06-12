@@ -17,12 +17,12 @@ Route::post('/login', [loginController::class, 'login'])->name('login');
 Route::get('/logout', [loginController::class, 'logout'])->name('login.logout');
 
 
-Route::get('/profiles/{profile}', [profileController::class, 'show'])
-->name('profiles.show');
-
 //create profile routes:
 Route::get('/profiles/create', [profileController::class, 'create'])->name('profiles.create');
 Route::post('/profiles/store', [profileController::class, 'store'])->name('profiles.store');
+
+Route::get('/profiles/{profile}', [profileController::class, 'show'])
+->name('profiles.show');
 
 //edit profile route:
 Route::get('/profiles/{profile}/modify', [profileController::class, 'modify'])->name('profile.modify');

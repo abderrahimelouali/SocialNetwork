@@ -12,7 +12,7 @@
             </ul>
         </x-alert>
     @endif
-    <form action="{{ route('profiles.store') }}" method="POST">
+    <form action="{{ route('profiles.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label class="form-label">Name:</label>
@@ -46,6 +46,13 @@
             <label class="form-label"> Bio: (optional)</label>
             <textarea name="bio" class="form-control" > {{old('bio')}}</textarea>
             @error('bio')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Profile Picture: (optional)</label>
+            <input type="file" name="image" class="form-control">
+            @error('image')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
