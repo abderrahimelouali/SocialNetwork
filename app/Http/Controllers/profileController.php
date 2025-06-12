@@ -25,11 +25,14 @@ class profileController extends Controller
     }
     public function store(profileRequest $request)
     {
+        //validate the request
         $formFields = $request->validated();
-        // dd($formFields);
-
         //hash
         $formFields['password'] = Hash::make($formFields['password']);
+        //
+
+        //handle file upload & add image path to form fields
+        $formFields['image'] =$request->file("image")->store("images", "public");
 
         //create profile
         Profile::create($formFields);
