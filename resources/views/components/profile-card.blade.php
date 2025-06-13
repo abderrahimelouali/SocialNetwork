@@ -2,8 +2,8 @@
 
 <div class="col-sm-4 my-3"> <!-- Add vertical margin here -->
     <div class="card">
-        <img src="https://randomuser.me/api/portraits/men/{{ $profile->id % 100 }}.jpg" alt="Title"
-            class="card-img-top">
+        <img src="{{asset('storage/' .$profile->image)}}" alt="Title"
+            class="card-img-top">{{-- this method not return image because it is not in public folder so we need run: php artisan storage:link --}}
         <div class="card-body">
 
             <h4 class="card-title">{{ $profile->name }}</h4>

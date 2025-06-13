@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class profileRequest extends FormRequest
 {
@@ -22,9 +23,12 @@ class profileRequest extends FormRequest
     public function rules(): array
     {
         return [
-             //validation rules
             'name' => 'required|min:3|max:50',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('profiles'),
+            ],
             'password' => 'required|min:6|max:55|confirmed',
             'bio' => 'nullable|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 2MB max
