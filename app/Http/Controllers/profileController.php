@@ -32,7 +32,9 @@ class profileController extends Controller
         //
 
         //handle file upload & add image path to form fields
-        $formFields['image'] =$request->file("image")->store("images", "public");
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file("image")->store("images", "public");
+        }
 
         //create profile
         Profile::create($formFields);
@@ -56,6 +58,10 @@ class profileController extends Controller
         $formFields = $request->validated();
         //hash
         $formFields['password'] = Hash::make($formFields['password']);
+        //handle file upload & add image path to form fields
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file("image")->store("images", "public");
+        }
         $profile->fill($formFields)->save();
         // dd($profile);
         return redirect()->route('profiles.show', compact('profile'))
