@@ -11,6 +11,8 @@ class Profile extends Model
     /** @use HasFactory<\Database\Factories\ProfileFactory> */
     use HasFactory;
     use SoftDeletes;
+
+    protected $dates = ["created_at"];
     protected $fillable = ['name', 'email', 'password','image', 'bio'];
 
 }
