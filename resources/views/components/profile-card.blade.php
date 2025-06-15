@@ -23,7 +23,7 @@
                 @csrf
                 <button class="btn btn-danger float-end">Delete</button>
             </form>
-            <a class="btn btn-primary" href="{{ route('profile.modify', $profile->id) }}">Update</a>
+            <a class="btn btn-primary" href="{{ route('profiles.modify', $profile->id) }}">Update</a>
         </div>
     </div>
 </div>

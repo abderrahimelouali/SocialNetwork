@@ -6,6 +6,7 @@ use App\Http\Requests\profileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use PhpParser\Node\Stmt\Return_;
 
 class profileController extends Controller
 {
@@ -29,12 +30,9 @@ class profileController extends Controller
         $formFields = $request->validated();
         //hash
         $formFields['password'] = Hash::make($formFields['password']);
-        //
 
         //handle file upload & add image path to form fields
-        if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file("image")->store("images", "public");
-        }
+        $this->uploadImage($request, $formFields);
 
         //create profile
         Profile::create($formFields);
@@ -59,12 +57,17 @@ class profileController extends Controller
         //hash
         $formFields['password'] = Hash::make($formFields['password']);
         //handle file upload & add image path to form fields
-        if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file("image")->store("images", "public");
-        }
+        $this->uploadImage($request, $formFields);
         $profile->fill($formFields)->save();
         // dd($profile);
         return redirect()->route('profiles.show', compact('profile'))
             ->with('success', 'Profile updated successfully!');
+    }
+    private function uploadImage(ProfileRequest $request, array &$formFields)
+    {
+        unset($formFields['image']);
+        if ($request->hasFile('image')) {
+            return $formFields['image'] = $request->file("image")->store("images", "public");
+        }
     }
 }

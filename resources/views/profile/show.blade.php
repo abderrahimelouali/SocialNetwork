@@ -12,7 +12,7 @@
                     </h4>
                     <p class="card-text">{{$profile->created_at->format('d/m/Y')}}</p>
                     <p class="card-text">Email: <a href="mailto:{{$profile->email}}">{{$profile->email}}</a></p>
-                    <p class="card-text">{{$profile->name}}</p>
+                    <p class="card-text">{{$profile->bio}}</p>
                 </div>
             </div>
         </diV>
