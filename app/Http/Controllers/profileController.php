@@ -47,7 +47,7 @@ class profileController extends Controller
         return redirect()->route('profiles.index')
             ->with('danger', 'Profile deleted successfully!');
     }
-    public function modify(Profile $profile)
+    public function edit(Profile $profile)
     {
         return view("profile.modify", compact('profile'));
     }

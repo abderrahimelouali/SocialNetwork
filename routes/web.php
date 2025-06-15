@@ -6,24 +6,25 @@ use  App\Http\Controllers\profileController;
 use  App\Http\Controllers\informationsController;
 use App\Http\Controllers\loginController;
 
-Route::name('profiles.')->prefix('profiles')->group(function () {
-    Route::controller(profileController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
+// Route::name('profiles.')->prefix('profiles')->group(function () {
+//     Route::controller(profileController::class)->group(function () {
+//         Route::get('/', 'index')->name('index');
 
-        //create profile routes:
-        Route::get('/create', 'create')->name('create');
-        Route::post('/', 'store')->name('store');
+//         //create profile routes:
+//         Route::get('/create', 'create')->name('create');
+//         Route::post('/', 'store')->name('store');
 
-        //edit profile route:
-        Route::get('/{profile}/modify', 'modify')->name('modify');
-        Route::put('/{profile}', 'update')->name('update');
+//         //edit profile route:
+//         Route::get('/{profile}/modify', 'modify')->name('modify');
+//         Route::put('/{profile}', 'update')->name('update');
 
-        //delete profile route:
-        Route::delete('/{profile}',  'destroy')->name('destroy');
+//         //delete profile route:
+//         Route::delete('/{profile}',  'destroy')->name('destroy');
 
-        Route::get('/{profile}', 'show')->name('show');
-    });
-});
+//         Route::get('/{profile}', 'show')->name('show');
+//     });
+// });
+Route::resource('profiles', profileController::class); 
 
 
 
